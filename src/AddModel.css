@@ -1,0 +1,115 @@
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 20vh; /* 20% from top */
+  left: 0;
+  right: 0;
+  height: 80vh; /* smaller height */
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  overflow: hidden; /* Hide overflow to control scroll in modal */
+  scroll-behavior: smooth;
+  padding: 1rem 1.5rem;
+  border-color: black;
+  border-radius: 1rem;
+}
+
+/* Modal container */
+.modal-container {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 420px;
+  max-height: 100%; /* fit inside overlay */
+  padding: 2rem 1.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeInScale 0.3s ease forwards;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Modal body - scroll if overflow */
+.modal-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 0.5rem; /* for scrollbar spacing */
+}
+
+/* Scrollbar styles for better look */
+.modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+}
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Reduce spacing a bit */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Buttons smaller height */
+button {
+  padding: 0.55rem 1rem;
+  font-size: 1rem;
+}
+
+/* Next Button */
+#next {
+  background-color: #22c55e;
+  width: 48%;
+  float: right;
+  margin-top: 0.8rem;
+}
+
+/* Back Button */
+#back {
+  background-color: #ef4444;
+  width: 48%;
+  margin-top: 0.8rem;
+}
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .modal-container {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+    border-radius: 1rem 1rem 0 0;
+  }
+
+  #next,
+  #back,
+  .btn-submit {
+    width: 100%;
+    float: none;
+  }
+
+  .flex.justify-between {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+}
