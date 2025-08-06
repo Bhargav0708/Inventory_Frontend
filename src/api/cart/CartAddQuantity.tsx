@@ -18,7 +18,7 @@ import { toast } from "react-toastify";
 //   category_id: number;
 // };
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://inventory-backend-hjmi.onrender.com",
   timeout: 10000,
   withCredentials: true,
 });

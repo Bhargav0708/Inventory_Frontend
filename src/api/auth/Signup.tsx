@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 type SignupFormType = z.infer<typeof signupSchema>;
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://inventory-backend-hjmi.onrender.com",
   timeout: 5000,
   withCredentials: true,
 });
