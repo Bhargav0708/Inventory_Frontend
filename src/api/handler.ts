@@ -2,7 +2,7 @@
 // import { useEffect, useState } from "react";
 
 // const instance = axios.create({
-//   baseURL: "http://localhost:3000/",
+//   baseURL: "https://inventory-frontend-r9ox.vercel.app/",
 //   timeout: 5000,
 // });
 
@@ -38,7 +38,7 @@
 // import { useNavigate } from "react-router-dom";
 
 // const instance = axios.create({
-//   baseURL: "http://localhost:3000/",
+//   baseURL: "https://inventory-frontend-r9ox.vercel.app/",
 //   timeout: 5000,
 // });
 
@@ -95,7 +95,7 @@
 // type SignupFormType = z.infer<typeof signupSchema>;
 
 // const axiosInstance = axios.create({
-//   baseURL: "https://inventory-backend-hjmi.onrender.com",
+//   baseURL: "https://inventory-frontend-r9ox.vercel.app",
 //   timeout: 5000,
 //   withCredentials: true,
 // });

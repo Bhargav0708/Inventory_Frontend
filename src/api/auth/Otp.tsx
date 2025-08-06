@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 // type OtpFormType = z.infer<typeof otpSchema>;
 
 const axiosInstance = axios.create({
-  baseURL: "https://inventory-backend-hjmi.onrender.com",
+  baseURL: "https://inventory-frontend-r9ox.vercel.app",
   timeout: 5000,
   withCredentials: true,
 });

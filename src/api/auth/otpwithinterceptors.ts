@@ -8,7 +8,7 @@ import { otpSchema } from "../../schema/OtpSchema";
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://inventory-backend-hjmi.onrender.com",
+  baseURL: "https://inventory-frontend-r9ox.vercel.app",
   timeout: 5000,
   withCredentials: true,
 });
