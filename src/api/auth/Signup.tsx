@@ -30,7 +30,7 @@ export const useSignup = () => {
 
   const mutation = useMutation({
     mutationFn: signupRequest,
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       const email = localStorage.getItem("useremail");
       alert("Registered Successfully");
       toast.success("Registered Successfully");

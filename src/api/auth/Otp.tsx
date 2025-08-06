@@ -5,13 +5,14 @@ type ErrorMessage = {
     };
   };
 };
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
 // import type z from "zod";
 // import { otpSchema } from "../../schema/OtpSchema";
 import { toast } from "react-toastify";
+// import { AxiosError } from "axios";
 // type OtpFormType = z.infer<typeof otpSchema>;
 
 const axiosInstance = axios.create({
@@ -22,7 +23,7 @@ const axiosInstance = axios.create({
 
 const otprequest = async (formData: any) => {
   try {
-    const response = await axiosInstance.post("/verifyotp", formData);
+    const response = await axiosInstance.post<any>("/verifyotp", formData);
 
     // Optional: handle known error shape inside success response
     if (response.data?.error) {
@@ -30,14 +31,15 @@ const otprequest = async (formData: any) => {
     }
 
     return response.data;
-  } catch (err) {
-    const error = err as AxiosError<{ error: string }>;
-    toast.error(error.response?.data.error);
+  } catch (err: any) {
+    const msg = err?.response?.data?.error || "Something went wrong";
+    // const error = err as AxiosError<{ error: string }>;
+    toast.error(msg);
     console.error(
       " Error during OTP verification:",
-      error?.response?.data.error || error.message
+      err?.response?.data.error || err.message
     );
-    throw error;
+    throw err;
   }
 };
 

@@ -76,7 +76,7 @@ const StockDisplay = async () => {
 };
 
 export const useStock = () => {
-  return useQuery({
+  return useQuery<any>({
     queryKey: ["stocks"],
     queryFn: StockDisplay,
     staleTime: 1000 * 60 * 5, // optional: cache for 5 minutes

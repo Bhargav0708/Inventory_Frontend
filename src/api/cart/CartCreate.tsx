@@ -36,7 +36,7 @@ const AddCart = async (data: any) => {
     quantity: data.quantity,
     price: data.price,
   };
-  const response = await axiosInstance.post("/cart/makingcart", Cartdata);
+  const response = await axiosInstance.post<any>("/cart/makingcart", Cartdata);
 
   return response.data.data; // { token: "..." }
 };

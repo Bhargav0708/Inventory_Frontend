@@ -35,7 +35,7 @@ const CateogryDisplay = async () => {
 };
 
 export const useCateogry = () => {
-  return useQuery({
+  return useQuery<any>({
     queryKey: ["categories"],
     queryFn: CateogryDisplay,
     staleTime: 1000 * 60 * 0.2, // optional: cache for 5 minutes

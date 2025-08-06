@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
 });
 
 const SalesOrders = async () => {
-  const response = await axiosInstance.get(
+  const response = await axiosInstance.get<any>(
     "/salesorder/AllCustomerDataOfSales"
   );
   console.log("the response is", response);

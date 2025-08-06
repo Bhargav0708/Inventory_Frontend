@@ -61,6 +61,9 @@
 //     SearchProductisSuccess: mutation.isSuccess,
 //   };
 // };
+type ProductSearchResponse = {
+  data: any[];
+};
 import { useMutation } from "@tanstack/react-query";
 import { useCallback } from "react";
 import axios from "axios";
@@ -73,7 +76,9 @@ const axiosInstance = axios.create({
 export const useSearchProduct = () => {
   const mutation = useMutation({
     mutationFn: async (params: string) => {
-      const res = await axiosInstance.get(`/product/productsearch?${params}`);
+      const res = await axiosInstance.get<ProductSearchResponse>(
+        `/product/productsearch?${params}`
+      );
       console.log("the res@@@@", res);
 
       return res.data.data;

@@ -40,7 +40,10 @@ const AddQuantity = async (data: any) => {
     productQuantity: quanity,
     UserId: userid,
   };
-  const response = await axiosInstance.put("/cart/addproduct", datatobesnet);
+  const response = await axiosInstance.put<any>(
+    "/cart/addproduct",
+    datatobesnet
+  );
 
   return response.data.data;
   //   const response = await axiosInstance.post("/cart/makingcart", Cartdata);

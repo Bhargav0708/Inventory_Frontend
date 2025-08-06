@@ -97,9 +97,12 @@ const axiosInstance = axios.create({
 });
 
 const SalesOrderGen = async (id: number): Promise<Blob> => {
-  const response = await axiosInstance.get(`/pdfroute/sales-orders/${id}`, {
-    responseType: "blob", // important for file
-  });
+  const response = await axiosInstance.get<Blob>(
+    `/pdfroute/sales-orders/${id}`,
+    {
+      responseType: "blob", // important for file
+    }
+  );
   console.log("the response is", response);
   return response.data; // this will be a Blob
 };

@@ -26,6 +26,9 @@ type Producttype = {
   categoryid?: number;
   quantity?: number;
 };
+export type ProductResponse = {
+  data: Producttype[];
+};
 // type CartType = {
 //   product_id: number;
 //   quantity: number;

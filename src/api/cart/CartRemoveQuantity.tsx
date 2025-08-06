@@ -110,7 +110,7 @@ const RemoveQuantity = async ({
     userid: uid,
   };
   // const response = await axiosInstance.get(`/cart/getcart/${id}`);
-  const response = await axiosInstance.put(
+  const response = await axiosInstance.put<any>(
     `/cart/cartupdatequantity/${id}`,
     datatobesent
   );

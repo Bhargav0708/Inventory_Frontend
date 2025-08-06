@@ -41,7 +41,7 @@ export const useLoginup = () => {
   const { setAuthToken } = useAuthContext();
   const mutation = useMutation({
     mutationFn: loginRequest,
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       const token2 = data.data.login_token;
       const token = {
         token: data.data.login_token,

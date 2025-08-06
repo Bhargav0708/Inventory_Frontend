@@ -130,7 +130,7 @@ const AddModel = ({ handleClose, setProduct, product }: ModalProps) => {
     const resultoftheAddproduct = addProductAsync(ProductInfo);
 
     console.log("the add product result of this ....", resultoftheAddproduct);
-    const result = await resultoftheAddproduct;
+    const result: any = await resultoftheAddproduct;
     console.log("this id  data of new product ....................", result);
 
     setProduct([...product, result.data]);

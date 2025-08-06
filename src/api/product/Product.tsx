@@ -48,7 +48,7 @@ const ProductDisplay = async () => {
 };
 
 export const useProduct = () => {
-  return useQuery({
+  return useQuery<any>({
     queryKey: ["products"],
     queryFn: ProductDisplay,
     staleTime: 1000 * 60 * 0.2, // optional: cache for 5 minutes

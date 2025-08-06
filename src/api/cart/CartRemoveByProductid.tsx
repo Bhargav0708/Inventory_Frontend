@@ -101,7 +101,7 @@ export const useRemovebyProductId = (id: number) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: RemoveByProductID,
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       if (data.success == true) {
         queryClient.invalidateQueries({
           queryKey: ["displaycart", id],

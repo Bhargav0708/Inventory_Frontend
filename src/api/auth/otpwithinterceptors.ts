@@ -14,7 +14,7 @@ const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (response) => {
+  (response: any) => {
     if (response.data?.error) {
       return Promise.reject({ response });
     }

@@ -40,7 +40,7 @@ const CartDisplay = async (id: number) => {
 };
 
 export const useCartdisplayById = (id: number) => {
-  return useQuery({
+  return useQuery<any>({
     queryKey: ["displaycart", id],
     queryFn: () => CartDisplay(id),
     enabled: !!id, // only runs if id is truthy

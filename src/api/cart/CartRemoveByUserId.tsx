@@ -103,7 +103,7 @@ export const useRemoveByuserId = (id: number) => {
   const queryClient = useQueryClient();
   const mutation = useMutation({
     mutationFn: RemoveByuserID,
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       console.log("Received Data", data);
       if (data.success == true) {
         queryClient.invalidateQueries({
