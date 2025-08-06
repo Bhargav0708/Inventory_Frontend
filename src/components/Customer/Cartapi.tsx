@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useCartdisplayById } from "../../api/cart/DisplayCart";
 import CustomerNavBar from "../CustomerNavBar";
 import { useProduct } from "../../api/product/Product";
@@ -11,17 +11,17 @@ const Cartapi = () => {
   const storedUserdata = localStorage.getItem("userdata");
   const user = storedUserdata ? JSON.parse(storedUserdata) : null;
 
-  const name = user.userdata.name;
+  // const name = user.userdata.name;
   const userid = user.userdata.id;
 
   // const [cartdata, setCartData] = useState([]);
   // const { data: cartdata } = useCartdisplayById(userid); // ✅ auto updates
-  const [product, setProduct] = useState([]);
+  // const [product] = useState([]);
   // const { DisplayData, data: DisplayCatchData } = useDisplayCart();
   // const { data: DisplayData } = useCartdisplayById(userid);
 
   // const { data: DisplayData } = useDisplayCart(userid);
-  const { data: ProductData, isLoading, error, refetch } = useProduct();
+  const { data: ProductData } = useProduct();
   const { RemoveProduct } = useRemovebyProductId(userid);
   const { RemoveQuanity } = useRemoveQuantity();
   const { AddQuantity } = useAddQuantity();
@@ -76,16 +76,17 @@ const Cartapi = () => {
   );
 
   //   console.log("this is Product data", product);
-  const cartalldata = cartdata.map((cp: any) => {
-    console.log("the cp", cp);
-  });
-  const CartproductData = product.filter((p: any) => {
-    // console.log(p.product_id == );
-  });
+  // const cartalldata = cartdata.map((cp: any) => {
+  //   console.log("the cp", cp);
+  // });
+  // const CartproductData = product.filter((p: any) => {
+  //   // console.log(p.product_id == );
+  // });
 
   const handleRemoveItem = (productId: number) => {
     console.log("this product id of remove", productId);
     const RemoveProductid = RemoveProduct(productId);
+    console.log(RemoveProductid);
 
     // particular productid Remove
     // dispatch(removecart(productId));
@@ -98,8 +99,10 @@ const Cartapi = () => {
     };
     if (newQuantity > 0) {
       const removeQuantity = RemoveQuanity(datatobesent);
+      console.log(removeQuantity);
     } else {
       const RemoveProductid = RemoveProduct(productId);
+      console.log(RemoveProductid);
       console.log("the delteed quanity is zero");
     }
     // const RemoveQuanity;
@@ -112,6 +115,7 @@ const Cartapi = () => {
 
   const handleClearCart = (userid: number) => {
     const clearCart = RemoveUserCart(userid);
+    console.log(clearCart);
     // setCartData([]);
     // userid --destory
     // dispatch(clearCart());

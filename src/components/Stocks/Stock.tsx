@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 // import { useLocation } from "react-router-dom";
 import { useProduct } from "../../api/product/Product";
 import { useStock } from "../../api/stocks/Stock";
@@ -46,8 +46,8 @@ const Stock = () => {
     quantity: 0,
     productid: 0,
   });
-  const { data: productData, isLoading: productLoading } = useProduct();
-  const { data: stockData, isLoading: stockLoading } = useStock();
+  const { data: productData } = useProduct();
+  const { data: stockData } = useStock();
 
   const storedUserData = localStorage.getItem("userdata");
   const user = storedUserData ? JSON.parse(storedUserData) : null;
@@ -79,11 +79,11 @@ const Stock = () => {
   const handleStockModifyOpen = (id: number) => {
     console.log("this is the current id", id);
 
-    const stockids = stockList.find((s) => s.stockid === id);
-    const findProductid = stockList.find(
-      (productid: any) => productid.stockid === id
-    );
-    const productid = findProductid?.productid;
+    // const stockids = stockList.find((s) => s.stockid === id);
+    // const findProductid = stockList.find(
+    //   (productid: any) => productid.stockid === id
+    // );
+    // const productid = findProductid?.productid;
 
     const stock = stockList.find((s: any) => s.stockid === id);
     console.log("the matching stock", stock);
@@ -99,33 +99,33 @@ const Stock = () => {
   const handleStockModifyClose = () => {
     setIsStockModifyOpen(false);
   };
-  const Logout = () => {
-    // alert("Are You Sure Want to LogOut")
-    const confirm = window.confirm("Are you sure you want to Logout?");
-    if (!confirm) return;
-    localStorage.removeItem("token");
-    localStorage.removeItem("userdata");
-    window.location.href = "/login";
-  };
-  const path = [
-    {
-      path: "/product/dashboard",
-      isActive: false,
-      label: "Home",
-    },
-    {
-      path: "/product/stock",
-      isActive: false,
-      label: "Stock",
-    },
-    {
-      path: "/product/sales",
-      isActive: false,
-      label: "Sales",
-    },
-  ];
+  // const Logout = () => {
+  //   // alert("Are You Sure Want to LogOut")
+  //   const confirm = window.confirm("Are you sure you want to Logout?");
+  //   if (!confirm) return;
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("userdata");
+  //   window.location.href = "/login";
+  // };
+  // const path = [
+  //   {
+  //     path: "/product/dashboard",
+  //     isActive: false,
+  //     label: "Home",
+  //   },
+  //   {
+  //     path: "/product/stock",
+  //     isActive: false,
+  //     label: "Stock",
+  //   },
+  //   {
+  //     path: "/product/sales",
+  //     isActive: false,
+  //     label: "Sales",
+  //   },
+  // ];
   console.log("this is location", window.location.pathname);
-  const currentPath = window.location.pathname;
+
   return (
     <div className="max-w-5xl mx-auto p-6">
       {/* <div className="flex justify-end mb-6 space-x-8">

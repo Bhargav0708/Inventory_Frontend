@@ -9,10 +9,10 @@ import axios, { AxiosError } from "axios";
 import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 
-import type z from "zod";
-import { otpSchema } from "../../schema/OtpSchema";
+// import type z from "zod";
+// import { otpSchema } from "../../schema/OtpSchema";
 import { toast } from "react-toastify";
-type OtpFormType = z.infer<typeof otpSchema>;
+// type OtpFormType = z.infer<typeof otpSchema>;
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000",
@@ -46,7 +46,7 @@ export const useOtp = () => {
 
   const mutation = useMutation({
     mutationFn: otprequest,
-    onSuccess: (data) => {
+    onSuccess: () => {
       toast.success("Otp verified SuccessFully");
       alert("OTP Verified Successfully");
       navigate("/auth/login");

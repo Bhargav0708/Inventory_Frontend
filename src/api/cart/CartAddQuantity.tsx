@@ -25,12 +25,12 @@ const axiosInstance = axios.create({
 
 const AddQuantity = async (data: any) => {
   console.log("the incoming data", data);
-  const Cartdata = {
-    userid: data.id,
-    productid: data.product_id,
-    quantity: data.quantity,
-    price: data.price,
-  };
+  // const Cartdata = {
+  //   userid: data.id,
+  //   productid: data.product_id,
+  //   quantity: data.quantity,
+  //   price: data.price,
+  // };
   const id = data.product_id;
   const quanity = data.quantity;
   const userid = data.userid;

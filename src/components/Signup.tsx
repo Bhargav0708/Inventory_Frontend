@@ -1,6 +1,5 @@
-import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+
 // import OTP from "./OTP";
 import "../index.css";
 // import "../signup.css";
@@ -13,15 +12,15 @@ import { useSignup } from "../api/auth/Signup";
 type SignupFormType = z.infer<typeof signupSchema>;
 
 export const Signup = () => {
-  const navigate = useNavigate();
-  const [data, setData] = useState<SignupFormType | null>(null);
-  const { signup, data: responseData, loading, error } = useSignup();
+  // const navigate = useNavigate();
+  // const [data, setData] = useState<SignupFormType | null>(null);
+  const { signup, loading } = useSignup();
 
   const {
     register,
     handleSubmit,
 
-    formState: { errors, isSubmitting },
+    formState: { errors },
     watch,
   } = useForm({
     shouldUnregister: true,

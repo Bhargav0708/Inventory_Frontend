@@ -38,7 +38,7 @@ const loginRequest = async (formData: LoginFormType) => {
 
 export const useLoginup = () => {
   const navigate = useNavigate();
-  const { token, setAuthToken, logout } = useAuthContext();
+  const { setAuthToken } = useAuthContext();
   const mutation = useMutation({
     mutationFn: loginRequest,
     onSuccess: (data) => {
@@ -61,7 +61,7 @@ export const useLoginup = () => {
       // localStorage.setItem("userdata", JSON.stringify(data.data.userdata));
 
       toast.success("Login successful!");
-      const role = data.data.userData.Roles[0].role_name;
+      // const role = data.data.userData.Roles[0].role_name;
       navigate("/product/dashboard", {
         state: { token: token, userdata: userdata },
       });

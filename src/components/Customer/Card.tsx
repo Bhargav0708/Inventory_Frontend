@@ -1,14 +1,14 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import "../../Customer.css";
 import { useProduct } from "../../api/product/Product";
 import { toast } from "react-toastify";
 import { useCateogry } from "../../api/cateogry/CategoryDisplay";
-import { useDispatch } from "react-redux";
-import { addtoCart } from "./CartSlice";
-import { Link } from "react-router-dom";
+// import { useDispatch } from "react-redux";
+// import { addtoCart } from "./CartSlice";
+// import { Link } from "react-router-dom";
 import { useSearchProduct } from "../../api/Search";
 import { useAddCart } from "../../api/cart/CartCreate";
-import { useAddQuantity } from "../../api/cart/CartAddQuantity";
+// import { useAddQuantity } from "../../api/cart/CartAddQuantity";
 // import { useProductSearch } from "../../api/Search";
 type Category = {
   cateogry_id: any;
@@ -26,10 +26,10 @@ type Producttype = {
   categoryid?: number;
   quantity?: number;
 };
-type CartType = {
-  product_id: number;
-  quantity: number;
-};
+// type CartType = {
+//   product_id: number;
+//   quantity: number;
+// };
 const Pagination = ({
   currentPage,
   totalPages,
@@ -137,8 +137,8 @@ const Card = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(12); // Default items per page
 
-  const { SearchData, SearchDataAsync, data } = useSearchProduct();
-  const { addCart, addCartAsync } = useAddCart();
+  const { SearchDataAsync } = useSearchProduct();
+  const { addCartAsync } = useAddCart();
   const storedUserdata = localStorage.getItem("userdata");
   const user = storedUserdata ? JSON.parse(storedUserdata) : null;
   const token = localStorage.getItem("token");
@@ -147,7 +147,7 @@ const Card = () => {
   }
   // const { AddQuantity, AddQuantityAsync } = useAddQuantity();
 
-  const name = user.userdata.name;
+  // const name = user.userdata.name;
   const userid = user.userdata.id;
 
   useEffect(() => {

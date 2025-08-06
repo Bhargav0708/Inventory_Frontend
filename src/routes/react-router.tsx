@@ -1,10 +1,5 @@
-import {
-  createBrowserRouter,
-  Navigate,
-  type RouteObject,
-} from "react-router-dom";
-import { Home } from "../components/Home";
-import { Signup } from "../components/Signup";
+import { createBrowserRouter, type RouteObject } from "react-router-dom";
+
 import { authRoute } from "../api/auth/auth.routes";
 import { productRoute } from "../api/product.routes";
 import NotFoundPage from "../components/NotFoundPage";

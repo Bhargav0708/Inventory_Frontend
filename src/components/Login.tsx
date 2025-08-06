@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { loginScehma } from "../schema/LoginSchema";
 import type z from "zod";
@@ -8,8 +8,8 @@ import { Eye, EyeOff } from "lucide-react";
 
 type LoginFormType = z.infer<typeof loginScehma>;
 const Login = () => {
-  const [data, setData] = useState("");
-  const [password, setPassword] = useState("");
+  // const [data, setData] = useState("");
+  // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const {
@@ -21,7 +21,7 @@ const Login = () => {
     shouldUnregister: true,
     resolver: zodResolver(loginScehma),
   });
-  const { login, data: responseData, loading, error, isSuccess } = useLoginup();
+  const { login, loading, error, isSuccess } = useLoginup();
   const handleToggle = () => {
     setShowPassword(!showPassword);
   };

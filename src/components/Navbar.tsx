@@ -1,9 +1,8 @@
-import React from "react";
 import { useAuthContext } from "../hooks/LoginProviderContext";
 
 const Navbar = () => {
   // const{}=useAuthContext
-  const { token, setAuthToken, logout } = useAuthContext();
+  const { setAuthToken } = useAuthContext();
   const path = [
     {
       path: "/product/dashboard",

@@ -53,7 +53,7 @@ type Category = {
 
 const AddModel = ({ handleClose, setProduct, product }: ModalProps) => {
   const [step, setStep] = useState(1);
-  const [valid, setValid] = useState(false);
+  // const [valid, setValid] = useState(false);
   const { addProductAsync } = useAddProduct();
   const storedUserdata = localStorage.getItem("userdata");
   const [cateogry, setCateogry] = useState<[]>([]);
@@ -70,22 +70,15 @@ const AddModel = ({ handleClose, setProduct, product }: ModalProps) => {
   }, [CateogryData]);
 
   console.log("this is a cateogrydata ", cateogry);
-  const Cateogrynm = cateogry.map((category: Category) => {
-    console.log("the cateogry in nym", category);
-    return {
-      cid: category.cateogry_id,
-      cname: category.name,
-    };
-  });
+  // const Cateogrynm = cateogry.map((category: Category) => {
+  //   console.log("the cateogry in nym", category);
+  //   return {
+  //     cid: category.cateogry_id,
+  //     cname: category.name,
+  //   };
+  // });
   // console.log("the Adding Prouct ", product);
-  const {
-    addStock,
-    addStockAsync,
-    StockData,
-    AddStockloading,
-    AddStockerror,
-    AddStockisSuccess,
-  } = useAddStock();
+  const { addStockAsync } = useAddStock();
 
   const {
     register,

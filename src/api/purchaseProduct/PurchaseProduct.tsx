@@ -23,7 +23,7 @@ const axiosInstance = axios.create({
   withCredentials: true,
 });
 
-const AddPurchase = async (data: any) => {
+const AddPurchase = async () => {
   // const CartData = {
   //   userid: cartBody.id,
   //   productid: cartBody.product_id,

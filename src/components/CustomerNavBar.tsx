@@ -1,6 +1,5 @@
-import React from "react";
 import { useAuthContext } from "../hooks/LoginProviderContext";
-import { useSelector } from "react-redux";
+
 // import cartIcon from "./cart.png";
 import { FaShoppingCart } from "react-icons/fa";
 export const CustomerNavBar = () => {
@@ -12,7 +11,7 @@ export const CustomerNavBar = () => {
   // console.log("in the custome navbar", cartState);
   // const countOfItmems = cartState.totalQuantity;
   // console.log("countOfitems", countOfItmems);
-  const { token, setAuthToken, logout } = useAuthContext();
+  const { setAuthToken } = useAuthContext();
   const path = [
     {
       path: "/customer/dashboard",

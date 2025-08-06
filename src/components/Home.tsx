@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import { useProduct } from "../api/product/Product";
 import { useStock } from "../api/stocks/Stock";
 import { useForm } from "react-hook-form";
@@ -36,9 +35,9 @@ export const Home = () => {
   //   maxstock: number;
   //   recordstock: number;
 
-  const { data: ProductData, isLoading, error, refetch } = useProduct();
-  const { data: responseData, loading: UpdateLoading } = useProductUpdate();
-  const { token, setAuthToken, logout } = useAuthContext();
+  const { data: ProductData } = useProduct();
+  const { loading: UpdateLoading } = useProductUpdate();
+  const { token } = useAuthContext();
   console.log("the context token", token);
   const [Product, setProduct] = useState<Producttype[]>([]);
   const [Stock, setStock] = useState<Producttype[]>([]);
@@ -47,8 +46,8 @@ export const Home = () => {
     null
   );
   const [isAddModelopen, setIsaddmodelopen] = useState(false);
-  const location = useLocation();
-  const { deleteProduct, loading, deleteproduct } = useDeleteProduct();
+  // const location = useLocation();
+  const { deleteProduct } = useDeleteProduct();
   const handleOpen = (id: number) => {
     const product = Product.find((p: Producttype) => p.product_id === id);
     if (product) {
@@ -68,16 +67,9 @@ export const Home = () => {
     // refetch();
   };
   const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
+    formState: {},
   } = useForm<Producttype>();
-  const {
-    data: stockData,
-    isLoading: stockloading,
-    error: stockerror,
-  } = useStock();
+  const { data: stockData } = useStock();
   const storedToken = localStorage.getItem("token");
   const token2 = storedToken ? JSON.parse(storedToken) : null;
   const storedUserdata = localStorage.getItem("userdata");
@@ -160,33 +152,32 @@ export const Home = () => {
       prev.filter((product) => product.product_id !== Deleteid)
     );
   };
-  const Logout = () => {
-    // alert("Are You Sure Want to LogOut")
-    const confirm = window.confirm("Are you sure you want to Logout?");
-    if (!confirm) return;
-    localStorage.removeItem("token");
-    localStorage.removeItem("userdata");
-    window.location.href = "/auth/login";
-  };
-  const path = [
-    {
-      path: "/product/dashboard",
-      isActive: false,
-      label: "Home",
-    },
-    {
-      path: "/product/stock",
-      isActive: false,
-      label: "Stock",
-    },
-    {
-      path: "/product/sales",
-      isActive: false,
-      label: "Sales",
-    },
-  ];
+  // const Logout = () => {
+  //   // alert("Are You Sure Want to LogOut")
+  //   const confirm = window.confirm("Are you sure you want to Logout?");
+  //   if (!confirm) return;
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("userdata");
+  //   window.location.href = "/auth/login";
+  // };
+  // const path = [
+  //   {
+  //     path: "/product/dashboard",
+  //     isActive: false,
+  //     label: "Home",
+  //   },
+  //   {
+  //     path: "/product/stock",
+  //     isActive: false,
+  //     label: "Stock",
+  //   },
+  //   {
+  //     path: "/product/sales",
+  //     isActive: false,
+  //     label: "Sales",
+  //   },
+  // ];
 
-  const currentPath = window.location.pathname;
   return (
     <div className="max-w-6xl mx-auto p-6" id="dashboard">
       {UpdateLoading ? (

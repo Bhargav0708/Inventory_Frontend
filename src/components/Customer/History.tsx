@@ -1,4 +1,3 @@
-import React from "react";
 import CustomerNavBar from "../CustomerNavBar";
 
 const History = () => {

@@ -1,26 +1,26 @@
-type ProducSTocktInfo = {
-  product_name: string;
-  product_barcode: string;
-  product_price: number;
-  description: string;
-  supplier_id: number;
-  category_id: number;
-  quantity: number;
-  warehouse_id: number;
-  minstock: number;
-  maxstock: number;
-  recordstock: number;
-};
-import { useMutation, useQuery } from "@tanstack/react-query";
+// type ProducSTocktInfo = {
+//   product_name: string;
+//   product_barcode: string;
+//   product_price: number;
+//   description: string;
+//   supplier_id: number;
+//   category_id: number;
+//   quantity: number;
+//   warehouse_id: number;
+//   minstock: number;
+//   maxstock: number;
+//   recordstock: number;
+// };
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { toast } from "react-toastify";
-type ErrorMessage = {
-  response: {
-    data: {
-      error: string;
-    };
-  };
-};
+// type ErrorMessage = {
+//   response: {
+//     data: {
+//       error: string;
+//     };
+//   };
+// };
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000/",

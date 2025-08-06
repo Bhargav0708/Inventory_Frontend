@@ -61,7 +61,6 @@
 // };
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000/",

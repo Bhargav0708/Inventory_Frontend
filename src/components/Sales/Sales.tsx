@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSalesOrders } from "../../api/sales/SalesOrders";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaFilePdf } from "react-icons/fa";
@@ -7,7 +7,7 @@ import ReactPaginate from "react-paginate";
 import { useSalesGen } from "../../api/sales/SalesOrderGen";
 import { toast } from "react-toastify";
 import Navbar from "../Navbar";
-type SalesDetails = {};
+// type SalesDetails = {};
 type SalesInfo = {
   sales_order_id: number;
   customer_id: number;
@@ -44,23 +44,23 @@ type FinalSale = {
   unit_price?: number;
   total_amount?: number;
 };
-type MappedData = {
-  purchase_order_id: number;
-  salesUser: {
-    name: string;
-    phone: string;
-    email: string;
-  };
-  salesproducts: {
-    name: string;
-    supplierid: number;
-  };
-  quantity: number;
-  order_status: string;
-  order_date: string;
-  unit_price: string;
-  total_amount: number;
-};
+// type MappedData = {
+//   purchase_order_id: number;
+//   salesUser: {
+//     name: string;
+//     phone: string;
+//     email: string;
+//   };
+//   salesproducts: {
+//     name: string;
+//     supplierid: number;
+//   };
+//   quantity: number;
+//   order_status: string;
+//   order_date: string;
+//   unit_price: string;
+//   total_amount: number;
+// };
 
 const ITEMS_PER_PAGE = 5;
 const Sales = () => {
@@ -74,26 +74,17 @@ const Sales = () => {
   const [currentPage, setCurrentPage] = useState(0);
 
   // const [isGen, setIsgen] = useState("");
-  const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
+  // const [pdfBlob, setPdfBlob] = useState<Blob | null>(null);
 
-  const storedToken = localStorage.getItem("token");
-  const token = storedToken ? JSON.parse(storedToken) : null;
+  // const storedToken = localStorage.getItem("token");
+  // const token = storedToken ? JSON.parse(storedToken) : null;
   const storedUserdata = localStorage.getItem("userdata");
   const user = storedUserdata ? JSON.parse(storedUserdata) : null;
 
   const name = user.userdata.name;
   const userid = user.userdata.id;
-  const {
-    data: SalesData,
-    isLoading: stockloading,
-    error: stockerror,
-  } = useSalesOrders();
-  const {
-    SalesOrderGenration,
-    data: SalesGenData,
-    loading: loadingGen,
-    error: GenError,
-  } = useSalesGen();
+  const { data: SalesData } = useSalesOrders();
+  const { SalesOrderGenration } = useSalesGen();
 
   useEffect(() => {
     if (Array.isArray(SalesData)) {
@@ -158,36 +149,34 @@ const Sales = () => {
     setCustomPage("");
   };
 
-  const Logout = () => {
-    const confirm = window.confirm("Are you sure you want to Logout?");
-    if (!confirm) return;
-    localStorage.removeItem("token");
-    localStorage.removeItem("userdata");
-    window.location.href = "/auth/login";
-  };
-  const path = [
-    {
-      path: "/product/dashboard",
-      isActive: false,
-      label: "Home",
-    },
-    {
-      path: "/product/stock",
-      isActive: false,
-      label: "Stock",
-    },
-    {
-      path: "/product/sales",
-      isActive: false,
-      label: "Sales",
-    },
-  ];
-
-  const currentPath = window.location.pathname;
+  // const Logout = () => {
+  //   const confirm = window.confirm("Are you sure you want to Logout?");
+  //   if (!confirm) return;
+  //   localStorage.removeItem("token");
+  //   localStorage.removeItem("userdata");
+  //   window.location.href = "/auth/login";
+  // };
+  // const path = [
+  //   {
+  //     path: "/product/dashboard",
+  //     isActive: false,
+  //     label: "Home",
+  //   },
+  //   {
+  //     path: "/product/stock",
+  //     isActive: false,
+  //     label: "Stock",
+  //   },
+  //   {
+  //     path: "/product/sales",
+  //     isActive: false,
+  //     label: "Sales",
+  //   },
+  // ];
 
   const handleDownloadPDF = async () => {
     try {
-      const dummy_supplierId = 2;
+      // const dummy_supplierId = 2;
       // console.log("Downloading PDF for supplier ID:", dummy_supplierId);
 
       // const response = await SalesOrderGenration(dummy_supplierId);

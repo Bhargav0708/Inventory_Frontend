@@ -5,15 +5,15 @@ type ErrorMessage = {
     };
   };
 };
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import axios, { AxiosHeaders } from "axios";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import axios from "axios";
 import { toast } from "react-toastify";
-type updateProudct = {
-  name: string;
-  price: number;
-  product_image: string;
-  product_id: number;
-};
+// type updateProudct = {
+//   name: string;
+//   price: number;
+//   product_image: string;
+//   product_id: number;
+// };
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:3000/",

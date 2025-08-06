@@ -38,7 +38,7 @@ export const useOtp = () => {
 
   const mutation = useMutation({
     mutationFn: otprequest,
-    onSuccess: (data) => {
+    onSuccess: () => {
       alert("OTP Verified Successfully");
       navigate("/auth/login");
     },

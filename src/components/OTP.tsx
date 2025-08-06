@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate, useLocation } from "react-router-dom";
-import { otpSchema } from "../schema/OtpSchema";
-import type z from "zod";
+import { useLocation } from "react-router-dom";
+
 // import { useOtp } from "../api/auth/Otp";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useOtp } from "../api/auth/Otp";
 useForm;
 // type OTPFormType = z.infer<typeof otpSchema>;
@@ -14,17 +12,16 @@ interface otp {
   // email: string;
 }
 const OTP = () => {
-  const [data, setData] = useState("");
+  const [data] = useState("");
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const token = location.state?.token;
   const email = location.state?.email;
-  const { otp, data: responseData, loading, error } = useOtp();
+  const { otp } = useOtp();
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
   } = useForm<otp>({
     shouldUnregister: true,
     // resolver: zodResolver(otpSchema),

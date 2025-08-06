@@ -3,18 +3,18 @@ import "../Model.css";
 import { useForm } from "react-hook-form";
 import { Producttype } from "./Home";
 
-type Product = {
-  name?: string;
-  price?: number;
-  image_url?: string;
-  product_image?: FileList;
-  product_id: number;
-  barcode?: string;
-  description?: string;
-  supplierid?: number;
-  categoryid?: number;
-  quantity?: number;
-};
+// type Product = {
+//   name?: string;
+//   price?: number;
+//   image_url?: string;
+//   product_image?: FileList;
+//   product_id: number;
+//   barcode?: string;
+//   description?: string;
+//   supplierid?: number;
+//   categoryid?: number;
+//   quantity?: number;
+// };
 type ModalProps = {
   handleClose: () => void;
   // product: {
@@ -56,7 +56,7 @@ const Modal = ({ handleClose, product }: ModalProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting },
+    formState: { errors },
   } = useForm<FormData>({
     shouldUnregister: true,
     defaultValues: {
@@ -65,12 +65,7 @@ const Modal = ({ handleClose, product }: ModalProps) => {
       product_id: product.product_id,
     },
   });
-  const {
-    updateProduct,
-    data: responseData,
-    loading,
-    error,
-  } = useProductUpdate();
+  const { updateProduct } = useProductUpdate();
 
   //   const onSubmit = (data: FormData) => {
   //     console.log("the product is in model", product);

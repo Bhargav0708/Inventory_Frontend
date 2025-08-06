@@ -1,4 +1,3 @@
-import { validSchemaErrorData } from "@hookform/resolvers/valibot/src/__tests__/__fixtures__/data.js";
 import type { ReactNode } from "react";
 import { useForm } from "react-hook-form";
 import { useStockUpdate } from "../../api/stocks/ModifyStock";
@@ -18,7 +17,6 @@ const ModifyStockModel = ({ handleClose, stock }: ModalProps) => {
   const {
     register,
     handleSubmit,
-    getValues,
     formState: { errors, isSubmitting },
   } = useForm<StockModifyQuantity>({
     shouldUnregister: true,
@@ -27,7 +25,7 @@ const ModifyStockModel = ({ handleClose, stock }: ModalProps) => {
       productid: stock.productid,
     },
   });
-  const { updateStock, data: responseData, loading, error } = useStockUpdate();
+  const { updateStock, data: responseData } = useStockUpdate();
 
   // console.log("the default values", stock.productid);
   // const

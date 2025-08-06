@@ -1,7 +1,6 @@
 import CustomerNavBar from "../CustomerNavBar";
 import { useSelector, useDispatch } from "react-redux";
 import { addtoCart, removecart, updateQuantity, clearCart } from "./CartSlice";
-import { useEffect } from "react";
 
 type Producttype = {
   product_id?: number;
