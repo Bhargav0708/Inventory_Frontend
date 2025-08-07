@@ -18,7 +18,7 @@
 // //   category_id: number;
 // // };
 // const axiosInstance = axios.create({
-//   baseURL: "https://inventory-frontend-r9ox.vercel.app",
+//   baseURL: "https://inventory-backend-hjmi.onrender.com/",
 //   timeout: 5000,
 //   withCredentials: true,
 // });
@@ -87,7 +87,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
-  baseURL: "https://inventory-frontend-r9ox.vercel.app/",
+  baseURL: "https://inventory-backend-hjmi.onrender.com//",
   timeout: 10000,
   withCredentials: true,
 });

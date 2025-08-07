@@ -19,7 +19,7 @@ import { useAuthContext } from "../../hooks/LoginProviderContext";
 type LoginFormType = z.infer<typeof loginScehma>;
 
 const axiosInstance = axios.create({
-  baseURL: "https://inventory-frontend-r9ox.vercel.app",
+  baseURL: "https://inventory-backend-hjmi.onrender.com/",
   timeout: 5000,
   withCredentials: true,
 });

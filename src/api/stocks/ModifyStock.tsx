@@ -14,7 +14,7 @@ type updateStock = {
 };
 
 const axiosInstance = axios.create({
-  baseURL: "https://inventory-frontend-r9ox.vercel.app/",
+  baseURL: "https://inventory-backend-hjmi.onrender.com//",
   timeout: 10000,
   withCredentials: true,
 });

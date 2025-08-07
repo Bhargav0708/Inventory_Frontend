@@ -8,7 +8,7 @@
 // // type SignupFormType = z.infer<typeof signupSchema>;
 
 // const axiosInstance = axios.create({
-//   baseURL: "https://inventory-frontend-r9ox.vercel.app/",
+//   baseURL: "https://inventory-backend-hjmi.onrender.com//",
 //   timeout: 2000,
 //   withCredentials: true,
 // });
@@ -63,7 +63,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://inventory-frontend-r9ox.vercel.app/",
+  baseURL: "https://inventory-backend-hjmi.onrender.com//",
   timeout: 10000,
   withCredentials: true,
 });
